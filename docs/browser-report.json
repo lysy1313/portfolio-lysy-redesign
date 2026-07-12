@@ -1,0 +1,568 @@
+{
+  "url": "http://172.26.36.12:4173/",
+  "checks": [
+    {
+      "name": "Hero section equals one desktop viewport",
+      "pass": true,
+      "details": {
+        "viewportHeight": 864,
+        "section": {
+          "top": 0,
+          "bottom": 864,
+          "width": 1754,
+          "height": 864
+        },
+        "content": {
+          "top": 120.703125,
+          "bottom": 812.65625,
+          "width": 628.546875,
+          "height": 691.953125
+        },
+        "visual": {
+          "top": 171.671875,
+          "bottom": 761.671875,
+          "width": 535.453125,
+          "height": 590
+        },
+        "stats": {
+          "top": 710.578125,
+          "bottom": 812.65625,
+          "width": 628.546875,
+          "height": 102.078125
+        },
+        "cue": {
+          "top": 827.765625,
+          "bottom": 846,
+          "width": 1240,
+          "height": 18.234375
+        }
+      }
+    },
+    {
+      "name": "Hero content fits inside the desktop viewport",
+      "pass": true,
+      "details": {
+        "viewportHeight": 864,
+        "section": {
+          "top": 0,
+          "bottom": 864,
+          "width": 1754,
+          "height": 864
+        },
+        "content": {
+          "top": 120.703125,
+          "bottom": 812.65625,
+          "width": 628.546875,
+          "height": 691.953125
+        },
+        "visual": {
+          "top": 171.671875,
+          "bottom": 761.671875,
+          "width": 535.453125,
+          "height": 590
+        },
+        "stats": {
+          "top": 710.578125,
+          "bottom": 812.65625,
+          "width": 628.546875,
+          "height": 102.078125
+        },
+        "cue": {
+          "top": 827.765625,
+          "bottom": 846,
+          "width": 1240,
+          "height": 18.234375
+        }
+      }
+    },
+    {
+      "name": "Hero visual fits inside the desktop viewport",
+      "pass": true,
+      "details": {
+        "viewportHeight": 864,
+        "section": {
+          "top": 0,
+          "bottom": 864,
+          "width": 1754,
+          "height": 864
+        },
+        "content": {
+          "top": 120.703125,
+          "bottom": 812.65625,
+          "width": 628.546875,
+          "height": 691.953125
+        },
+        "visual": {
+          "top": 171.671875,
+          "bottom": 761.671875,
+          "width": 535.453125,
+          "height": 590
+        },
+        "stats": {
+          "top": 710.578125,
+          "bottom": 812.65625,
+          "width": 628.546875,
+          "height": 102.078125
+        },
+        "cue": {
+          "top": 827.765625,
+          "bottom": 846,
+          "width": 1240,
+          "height": 18.234375
+        }
+      }
+    },
+    {
+      "name": "animation-timeline: view() is active",
+      "pass": true,
+      "details": {
+        "viewSupported": true,
+        "scrollSupported": true,
+        "reveal": "view()",
+        "progress": "scroll(root)",
+        "nativeClass": true
+      }
+    },
+    {
+      "name": "Native scroll timeline drives the progress bar",
+      "pass": true,
+      "details": {
+        "viewSupported": true,
+        "scrollSupported": true,
+        "reveal": "view()",
+        "progress": "scroll(root)",
+        "nativeClass": true
+      }
+    },
+    {
+      "name": "Header scroll state updates without a scroll layout loop",
+      "pass": true,
+      "details": {
+        "transform": "matrix(0.0981244, 0, 0, 1, 0, 0)",
+        "scrolled": true
+      }
+    },
+    {
+      "name": "Scroll progress visibly advances",
+      "pass": true,
+      "details": {
+        "transform": "matrix(0.0981244, 0, 0, 1, 0, 0)",
+        "scrolled": true
+      }
+    },
+    {
+      "name": "Deferred sections render correctly when approached",
+      "pass": true,
+      "details": [
+        {
+          "selector": "#projects",
+          "contentVisibility": "auto",
+          "reveals": [
+            {
+              "opacity": 1,
+              "filter": "none",
+              "timeline": "view()"
+            },
+            {
+              "opacity": 1,
+              "filter": "none",
+              "timeline": "view()"
+            },
+            {
+              "opacity": 1,
+              "filter": "none",
+              "timeline": "view()"
+            },
+            {
+              "opacity": 0.786943,
+              "filter": "none",
+              "timeline": "view()"
+            },
+            {
+              "opacity": 0.72,
+              "filter": "none",
+              "timeline": "view()"
+            }
+          ]
+        },
+        {
+          "selector": "#skills",
+          "contentVisibility": "auto",
+          "reveals": [
+            {
+              "opacity": 1,
+              "filter": "none",
+              "timeline": "view()"
+            },
+            {
+              "opacity": 1,
+              "filter": "none",
+              "timeline": "view()"
+            },
+            {
+              "opacity": 1,
+              "filter": "none",
+              "timeline": "view()"
+            },
+            {
+              "opacity": 1,
+              "filter": "none",
+              "timeline": "view()"
+            },
+            {
+              "opacity": 1,
+              "filter": "none",
+              "timeline": "view()"
+            }
+          ]
+        },
+        {
+          "selector": "#about",
+          "contentVisibility": "auto",
+          "reveals": [
+            {
+              "opacity": 1,
+              "filter": "none",
+              "timeline": "view()"
+            },
+            {
+              "opacity": 1,
+              "filter": "none",
+              "timeline": "view()"
+            },
+            {
+              "opacity": 1,
+              "filter": "none",
+              "timeline": "view()"
+            },
+            {
+              "opacity": 1,
+              "filter": "none",
+              "timeline": "view()"
+            },
+            {
+              "opacity": 1,
+              "filter": "none",
+              "timeline": "view()"
+            }
+          ]
+        },
+        {
+          "selector": "#contact",
+          "contentVisibility": "auto",
+          "reveals": [
+            {
+              "opacity": 1,
+              "filter": "none",
+              "timeline": "view()"
+            },
+            {
+              "opacity": 1,
+              "filter": "none",
+              "timeline": "view()"
+            },
+            {
+              "opacity": 1,
+              "filter": "none",
+              "timeline": "view()"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "All project images load from responsive variants",
+      "pass": true,
+      "details": [
+        {
+          "complete": true,
+          "naturalWidth": 719,
+          "naturalHeight": 479,
+          "currentSrc": "http://172.26.36.12:4173/projects/tmdb-768.webp",
+          "loading": "lazy",
+          "decoding": "async"
+        },
+        {
+          "complete": true,
+          "naturalWidth": 719,
+          "naturalHeight": 479,
+          "currentSrc": "http://172.26.36.12:4173/projects/todo-768.webp",
+          "loading": "lazy",
+          "decoding": "async"
+        }
+      ]
+    },
+    {
+      "name": "Project images remain lazy and asynchronously decoded",
+      "pass": true,
+      "details": [
+        {
+          "complete": true,
+          "naturalWidth": 719,
+          "naturalHeight": 479,
+          "currentSrc": "http://172.26.36.12:4173/projects/tmdb-768.webp",
+          "loading": "lazy",
+          "decoding": "async"
+        },
+        {
+          "complete": true,
+          "naturalWidth": 719,
+          "naturalHeight": 479,
+          "currentSrc": "http://172.26.36.12:4173/projects/todo-768.webp",
+          "loading": "lazy",
+          "decoding": "async"
+        }
+      ]
+    },
+    {
+      "name": "Language switch still works",
+      "pass": true,
+      "details": {
+        "before": "Создаю интерфейсы,\nкоторые хочется прокрутить до конца.",
+        "after": "I build interfaces\nworth scrolling all the way through."
+      }
+    },
+    {
+      "name": "No console errors",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "No page errors",
+      "pass": true,
+      "details": []
+    },
+    {
+      "name": "No horizontal overflow at 320px",
+      "pass": true,
+      "details": {
+        "innerWidth": 320,
+        "scrollWidth": 320,
+        "bodyScrollWidth": 320,
+        "heroBottom": 955.953125,
+        "visualBottom": 1476.1529541015625,
+        "heroHeight": 1541.953125,
+        "viewportHeight": 700
+      }
+    },
+    {
+      "name": "No horizontal overflow at 360px",
+      "pass": true,
+      "details": {
+        "innerWidth": 360,
+        "scrollWidth": 360,
+        "bodyScrollWidth": 360,
+        "heroBottom": 977.6875,
+        "visualBottom": 1497.875244140625,
+        "heroHeight": 1563.6875,
+        "viewportHeight": 800
+      }
+    },
+    {
+      "name": "No horizontal overflow at 768px",
+      "pass": true,
+      "details": {
+        "innerWidth": 768,
+        "scrollWidth": 768,
+        "bodyScrollWidth": 768,
+        "heroBottom": 831.890625,
+        "visualBottom": 1446.51025390625,
+        "heroHeight": 1507.890625,
+        "viewportHeight": 900
+      }
+    },
+    {
+      "name": "No horizontal overflow at 900px",
+      "pass": true,
+      "details": {
+        "innerWidth": 900,
+        "scrollWidth": 900,
+        "bodyScrollWidth": 900,
+        "heroBottom": 582.515625,
+        "visualBottom": 671.1708374023438,
+        "heroHeight": 700,
+        "viewportHeight": 700
+      }
+    },
+    {
+      "name": "Hero fits one viewport at 900×700",
+      "pass": true,
+      "details": {
+        "innerWidth": 900,
+        "scrollWidth": 900,
+        "bodyScrollWidth": 900,
+        "heroBottom": 582.515625,
+        "visualBottom": 671.1708374023438,
+        "heroHeight": 700,
+        "viewportHeight": 700
+      }
+    },
+    {
+      "name": "No horizontal overflow at 1024px",
+      "pass": true,
+      "details": {
+        "innerWidth": 1024,
+        "scrollWidth": 1024,
+        "bodyScrollWidth": 1024,
+        "heroBottom": 618.25,
+        "visualBottom": 739.4429931640625,
+        "heroHeight": 768,
+        "viewportHeight": 768
+      }
+    },
+    {
+      "name": "Hero fits one viewport at 1024×768",
+      "pass": true,
+      "details": {
+        "innerWidth": 1024,
+        "scrollWidth": 1024,
+        "bodyScrollWidth": 1024,
+        "heroBottom": 618.25,
+        "visualBottom": 739.4429931640625,
+        "heroHeight": 768,
+        "viewportHeight": 768
+      }
+    },
+    {
+      "name": "No horizontal overflow at 1366px",
+      "pass": true,
+      "details": {
+        "innerWidth": 1366,
+        "scrollWidth": 1366,
+        "bodyScrollWidth": 1366,
+        "heroBottom": 642.59375,
+        "visualBottom": 742.04150390625,
+        "heroHeight": 768,
+        "viewportHeight": 768
+      }
+    },
+    {
+      "name": "Hero fits one viewport at 1366×768",
+      "pass": true,
+      "details": {
+        "innerWidth": 1366,
+        "scrollWidth": 1366,
+        "bodyScrollWidth": 1366,
+        "heroBottom": 642.59375,
+        "visualBottom": 742.04150390625,
+        "heroHeight": 768,
+        "viewportHeight": 768
+      }
+    },
+    {
+      "name": "No horizontal overflow at 1440px",
+      "pass": true,
+      "details": {
+        "innerWidth": 1440,
+        "scrollWidth": 1440,
+        "bodyScrollWidth": 1440,
+        "heroBottom": 829,
+        "visualBottom": 795.6999206542969,
+        "heroHeight": 900,
+        "viewportHeight": 900
+      }
+    },
+    {
+      "name": "Hero fits one viewport at 1440×900",
+      "pass": true,
+      "details": {
+        "innerWidth": 1440,
+        "scrollWidth": 1440,
+        "bodyScrollWidth": 1440,
+        "heroBottom": 829,
+        "visualBottom": 795.6999206542969,
+        "heroHeight": 900,
+        "viewportHeight": 900
+      }
+    },
+    {
+      "name": "No horizontal overflow at 1754px",
+      "pass": true,
+      "details": {
+        "innerWidth": 1754,
+        "scrollWidth": 1754,
+        "bodyScrollWidth": 1754,
+        "heroBottom": 812.65625,
+        "visualBottom": 777.3327026367188,
+        "heroHeight": 864,
+        "viewportHeight": 864
+      }
+    },
+    {
+      "name": "Hero fits one viewport at 1754×864",
+      "pass": true,
+      "details": {
+        "innerWidth": 1754,
+        "scrollWidth": 1754,
+        "bodyScrollWidth": 1754,
+        "heroBottom": 812.65625,
+        "visualBottom": 777.3327026367188,
+        "heroHeight": 864,
+        "viewportHeight": 864
+      }
+    },
+    {
+      "name": "No horizontal overflow at 1920px",
+      "pass": true,
+      "details": {
+        "innerWidth": 1920,
+        "scrollWidth": 1920,
+        "bodyScrollWidth": 1920,
+        "heroBottom": 1027.96875,
+        "visualBottom": 890.0905456542969,
+        "heroHeight": 1080,
+        "viewportHeight": 1080
+      }
+    },
+    {
+      "name": "Hero fits one viewport at 1920×1080",
+      "pass": true,
+      "details": {
+        "innerWidth": 1920,
+        "scrollWidth": 1920,
+        "bodyScrollWidth": 1920,
+        "heroBottom": 1027.96875,
+        "visualBottom": 890.0905456542969,
+        "heroHeight": 1080,
+        "viewportHeight": 1080
+      }
+    },
+    {
+      "name": "Mobile menu opens and closes with Escape",
+      "pass": true,
+      "details": {
+        "opened": "site-nav is-open",
+        "closed": "site-nav"
+      }
+    },
+    {
+      "name": "Sticky project cards fall back on mobile",
+      "pass": true,
+      "details": "relative"
+    },
+    {
+      "name": "Tilt effect is requestAnimationFrame-driven and resets",
+      "pass": true,
+      "details": {
+        "active": {
+          "active": true,
+          "x": "2.49983212774864deg",
+          "y": "1.9986660002649588deg"
+        },
+        "reset": true
+      }
+    },
+    {
+      "name": "Reduced motion leaves content visible and sharp",
+      "pass": true,
+      "details": {
+        "opacity": 1,
+        "filter": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "duration": "1e-06s"
+      }
+    }
+  ],
+  "passed": 32,
+  "failed": 0
+}

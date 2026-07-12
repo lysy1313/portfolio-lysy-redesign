@@ -1,0 +1,361 @@
+@keyframes page-scroll-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes hero-enter {
+  from {
+    transform: translateY(18px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-visual-enter {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes orbit-spin {
+  to {
+    rotate: 1turn;
+  }
+}
+
+@keyframes orbit-spin-reverse {
+  to {
+    rotate: -1turn;
+  }
+}
+
+@keyframes shimmer-dot {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes scroll-line {
+  from {
+    transform: translateX(-110%);
+  }
+  to {
+    transform: translateX(230%);
+  }
+}
+
+@keyframes marquee-left {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes footer-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes signal-wave {
+  0%,
+  100% {
+    transform: scaleY(0.55);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+.hero-entrance {
+  animation: hero-enter 560ms cubic-bezier(0.2, 0.72, 0.25, 1) both;
+}
+
+.hero-entrance--1 {
+  animation-delay: 20ms;
+}
+
+.hero-entrance--2 {
+  animation-delay: 50ms;
+}
+
+.hero-entrance--3 {
+  animation-delay: 85ms;
+}
+
+.hero-entrance--4 {
+  animation-delay: 120ms;
+}
+
+.hero-entrance--5 {
+  animation-delay: 155ms;
+}
+
+.hero-entrance--6 {
+  animation-delay: 190ms;
+}
+
+.hero-entrance--visual {
+  opacity: 0;
+  animation-name: hero-visual-enter;
+  animation-delay: 110ms;
+  animation-duration: 720ms;
+}
+
+.hero-visual__orbit--outer {
+  animation: orbit-spin 34s linear infinite;
+}
+
+.hero-visual__orbit--inner {
+  animation: orbit-spin-reverse 24s linear infinite;
+}
+
+.hero-visual__spark {
+  animation: shimmer-dot 2.8s ease-in-out infinite;
+}
+
+.hero-visual__spark--two {
+  animation-delay: -1.2s;
+}
+
+.scroll-cue__line::after {
+  animation: scroll-line 2.2s ease-in-out infinite;
+}
+
+.availability-dot {
+  animation: shimmer-dot 2.4s ease-in-out infinite;
+}
+
+.skills-marquee__track {
+  animation: marquee-left 46s linear infinite;
+}
+
+.skills-marquee:hover .skills-marquee__track {
+  animation-play-state: paused;
+}
+
+.site-footer__marquee > div {
+  animation: footer-marquee 18s linear infinite;
+}
+
+.contact-panel__signal span {
+  animation: signal-wave 1.8s ease-in-out infinite;
+  transform-origin: bottom;
+}
+
+.contact-panel__signal span:nth-child(2) {
+  animation-delay: -0.5s;
+}
+
+.contact-panel__signal span:nth-child(3) {
+  animation-delay: -1s;
+}
+
+.contact-panel__signal span:nth-child(4) {
+  animation-delay: -0.8s;
+}
+
+.contact-panel__signal span:nth-child(5) {
+  animation-delay: -0.25s;
+}
+
+.reveal-fallback {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
+  transition:
+    opacity 560ms cubic-bezier(0.2, 0.72, 0.25, 1),
+    transform 560ms cubic-bezier(0.2, 0.72, 0.25, 1);
+}
+
+.reveal-fallback.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.skills-grid .reveal-fallback:nth-child(2),
+.about-grid .reveal-fallback:nth-child(2),
+.contact-grid .reveal-fallback:nth-child(2) {
+  transition-delay: 90ms;
+}
+
+.skills-grid .reveal-fallback:nth-child(3),
+.about-grid .reveal-fallback:nth-child(3) {
+  transition-delay: 150ms;
+}
+
+.skills-grid .reveal-fallback:nth-child(4),
+.about-grid .reveal-fallback:nth-child(4) {
+  transition-delay: 210ms;
+}
+
+@keyframes view-reveal {
+  from {
+    opacity: 0;
+    translate: 0 28px;
+    scale: 0.985;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+}
+
+@keyframes card-view-reveal {
+  from {
+    opacity: 0.72;
+    translate: 0 22px;
+    scale: 0.985;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+}
+
+@keyframes line-view-draw {
+  from {
+    opacity: 0.25;
+    transform: scaleX(0.08);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes image-view-drift {
+  from {
+    transform: scale(1.08) translateY(3%);
+  }
+  to {
+    transform: scale(1) translateY(-1%);
+  }
+}
+
+@keyframes orbit-view-turn {
+  from {
+    transform: translate(-50%, -50%) rotate(-28deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(48deg);
+  }
+}
+
+@keyframes signal-view-rise {
+  from {
+    opacity: 0.1;
+    scale: 1 0.1;
+  }
+  to {
+    opacity: 0.55;
+    scale: 1 1;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .scroll-reveal {
+    animation-name: view-reveal;
+    animation-duration: 1ms;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 16%;
+  }
+
+  .project-card.scroll-reveal {
+    animation-name: card-view-reveal;
+    animation-range: entry 0% cover 14%;
+  }
+
+  .section-heading__line {
+    animation-name: line-view-draw;
+    animation-duration: 1ms;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 12% cover 44%;
+  }
+
+  .project-preview__image-wrap img {
+    animation-name: image-view-drift;
+    animation-duration: 1ms;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+
+  .about-visual__orbit--outer {
+    animation-name: orbit-view-turn;
+    animation-duration: 1ms;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+
+  .contact-panel__signal {
+    animation-name: signal-view-rise;
+    animation-duration: 1ms;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: view();
+    animation-range: entry 14% cover 44%;
+    transform-origin: bottom;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .hero-entrance,
+  .scroll-reveal,
+  .reveal-fallback,
+  .reveal-fallback.is-visible {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    translate: none !important;
+    scale: none !important;
+    clip-path: none !important;
+  }
+
+  .hero-visual__orbit,
+  .about-visual__orbit,
+  .about-visual__core {
+    rotate: 0deg !important;
+  }
+
+  .skills-marquee__track,
+  .site-footer__marquee > div {
+    transform: none !important;
+  }
+}
