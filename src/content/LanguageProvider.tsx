@@ -38,6 +38,16 @@ export function LanguageProvider({ children }: PropsWithChildren) {
     );
     description?.setAttribute("content", siteCopy[language].meta.description);
 
+    const ogTitle = document.querySelector<HTMLMetaElement>(
+      'meta[property="og:title"]',
+    );
+    ogTitle?.setAttribute("content", siteCopy[language].meta.title);
+
+    const ogDescription = document.querySelector<HTMLMetaElement>(
+      'meta[property="og:description"]',
+    );
+    ogDescription?.setAttribute("content", siteCopy[language].meta.description);
+
     try {
       window.localStorage.setItem(STORAGE_KEY, language);
     } catch {

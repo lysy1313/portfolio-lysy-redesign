@@ -7,8 +7,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  --font-sans: "Manrope", Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --font-heading: "Unbounded", var(--font-sans);
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 
   /* Readable type scale: functional text never drops below ~11px. */
@@ -21,8 +22,6 @@
   --bg-soft: #0c0f15;
   --surface: #10141b;
   --surface-raised: #141a23;
-  --surface-blue: #101a29;
-  --surface-light: #dce5ef;
   --text: #f2f5f9;
   --text-soft: #c7d0dd;
   --muted: #8c98aa;
@@ -32,7 +31,6 @@
   --blue-bright: #84c3ff;
   --blue-pale: #d8ebff;
   --blue-deep: #286dc7;
-  --blue-dark: #102a4a;
   --success: #76e5b1;
   --line: rgba(182, 202, 228, 0.14);
   --line-strong: rgba(185, 211, 244, 0.27);
@@ -49,7 +47,6 @@
   --radius-pill: 999px;
 
   --scroll-progress: 0;
-  --scroll-y: 0px;
   --pointer-x: 50vw;
   --pointer-y: 50vh;
   --pointer-opacity: 0;

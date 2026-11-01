@@ -1,5 +1,5 @@
 import { useLanguage } from "../content/useLanguage";
-import { GITHUB_URL } from "../content/siteContent";
+import { CV_FILE, GITHUB_URL } from "../content/siteContent";
 import { Icon } from "./Icon";
 
 export function Hero() {
@@ -31,6 +31,14 @@ export function Hero() {
             <a className="button button--primary" href="#projects">
               <span>{copy.hero.primaryAction}</span>
               <Icon name="arrow-down" width={19} height={19} />
+            </a>
+            <a
+              className="button button--ghost"
+              href={`${import.meta.env.BASE_URL}${CV_FILE}`}
+              download="Ilya-Lysy-CV.pdf"
+            >
+              <Icon name="file" width={19} height={19} />
+              <span>{copy.hero.cvAction}</span>
             </a>
             <a
               className="button button--ghost"

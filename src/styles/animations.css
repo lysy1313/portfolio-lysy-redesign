@@ -218,8 +218,8 @@
 
 @keyframes card-view-reveal {
   from {
-    opacity: 0.72;
-    translate: 0 22px;
+    opacity: 0.35;
+    translate: 56px 0;
     scale: 0.985;
   }
   to {
@@ -242,10 +242,10 @@
 
 @keyframes image-view-drift {
   from {
-    transform: scale(1.08) translateY(3%);
+    transform: translateY(2%);
   }
   to {
-    transform: scale(1) translateY(-1%);
+    transform: translateY(-1%);
   }
 }
 
@@ -281,7 +281,7 @@
 
   .project-card.scroll-reveal {
     animation-name: card-view-reveal;
-    animation-range: entry 0% cover 14%;
+    animation-range: entry 0% cover 26%;
   }
 
   .section-heading__line {

@@ -7,20 +7,25 @@ export type IconName =
   | "code"
   | "copy"
   | "database"
+  | "file"
   | "github"
   | "layers"
+  | "linkedin"
   | "mail"
   | "menu"
   | "close"
   | "spark"
+  | "telegram"
   | "tools";
 
 export interface Project {
-  id: "tmdb" | "todo" | "shop" | "portfolio" | "legacy-portfolio";
+  id: "tmdb" | "todo" | "shop" | "portfolio";
   index: string;
   year: string;
   repository: string;
   live: string;
+  archiveUrl?: string;
+  archiveLabel?: Record<Language, string>;
   stack: readonly string[];
   image?: string;
   previewLabel?: string;
@@ -56,6 +61,7 @@ interface SiteCopy {
     titleAccent: string;
     description: string;
     primaryAction: string;
+    cvAction: string;
     secondaryAction: string;
     scrollHint: string;
     consoleFile: string;
@@ -121,8 +127,13 @@ interface SiteCopy {
 }
 
 export const EMAIL = "lysy.ilya1313@gmail.com";
+export const TELEGRAM_HANDLE = "@lysy_I";
+export const TELEGRAM_URL = "https://t.me/lysy_I";
+export const LINKEDIN_HANDLE = "in/ilya-lysy";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/ilya-lysy";
 export const DISCORD = "lysy.i";
 export const GITHUB_URL = "https://github.com/lysy1313";
+export const CV_FILE = "cv.pdf";
 
 export const projects: readonly Project[] = [
   {
@@ -132,23 +143,19 @@ export const projects: readonly Project[] = [
     repository: "https://github.com/lysy1313/tmdb-kinopoisk-lysy",
     live: "https://tmdb-kinopoisk-lysy.vercel.app/",
     image: "projects/tmdb.webp",
-    stack: [
-      "React",
-      "TypeScript",
-      "RTK Query",
-      "React Router",
-      "Zod",
-      "SCSS",
-    ],
+    stack: ["React", "TypeScript", "RTK Query", "React Router", "Zod", "SCSS"],
     title: { ru: "TMDB Кинопоиск", en: "TMDB Cinema" },
-    category: { ru: "Киносервис", en: "Movie discovery app" },
+    category: {
+      ru: "Киносервис · API и фильтрация",
+      en: "Movie discovery · API & filters",
+    },
     description: {
-      ru: "Современный интерфейс для поиска фильмов и сериалов с детальными страницами, фильтрами и асинхронными данными.",
-      en: "A modern interface for discovering movies and TV shows with detail pages, filters and asynchronous data.",
+      ru: "Клиент каталога фильмов и сериалов с живым поиском, комбинированной фильтрацией, пагинацией и детальными карточками тайтлов.",
+      en: "A movie and TV catalog client with live search, combined filters, pagination and detailed title pages.",
     },
     detail: {
-      ru: "Архитектура построена вокруг типизированных API-запросов, валидации данных и предсказуемой навигации.",
-      en: "The architecture is built around typed API requests, data validation and predictable navigation.",
+      ru: "Кэширование и дедупликация запросов вынесены в RTK Query, ответы API валидируются схемами Zod на границе сети, а параметры фильтров синхронизированы с URL.",
+      en: "Request caching and deduplication are handled by RTK Query, API responses are validated with Zod at the network boundary, and filter state is synced with the URL.",
     },
   },
   {
@@ -167,85 +174,70 @@ export const projects: readonly Project[] = [
       "Zod",
     ],
     title: { ru: "Список дел", en: "Task Manager" },
-    category: { ru: "Менеджер задач", en: "Task management" },
+    category: {
+      ru: "Менеджер задач · CRUD и формы",
+      en: "Task management · CRUD & forms",
+    },
     description: {
-      ru: "Менеджер задач с категориями, фильтрацией, формами и понятным состоянием интерфейса.",
-      en: "A task manager with categories, filtering, forms and clear interface states.",
+      ru: "Многосписочный таск-менеджер с авторизацией, статусами выполнения, фильтрацией по категориям и мгновенным откликом UI.",
+      en: "A multi-list task manager with authentication, completion states, category filtering and responsive UI feedback.",
     },
     detail: {
-      ru: "Фокус проекта — удобные пользовательские сценарии, строгая схема форм и работа с серверным состоянием.",
-      en: "The project focuses on smooth user flows, strict form schemas and server-state management.",
+      ru: "Формы построены на React Hook Form + Zod со строгой типизацией ошибок, а мутации списков и задач синхронизируются с сервером через RTK Query.",
+      en: "Forms are built on React Hook Form + Zod with strictly typed validation errors, while list and task mutations sync with the server via RTK Query.",
     },
   },
   {
     id: "shop",
     index: "03",
     year: "2024",
-    repository: "https://github.com/lysy1313/product-catalog-with-shopping-cart",
+    repository:
+      "https://github.com/lysy1313/product-catalog-with-shopping-cart",
     live: "https://product-catalog-with-shopping-cart.vercel.app/#/product-catalog-with-shopping-cart/catalog",
     image: "projects/shop.webp",
     previewLabel: "shop.vercel.app",
     stack: ["React", "TypeScript", "Redux", "React Router", "SCSS"],
     title: { ru: "Магазин", en: "E-commerce" },
-    category: { ru: "Каталог и корзина", en: "Catalog and cart" },
+    category: {
+      ru: "E-commerce · каталог и корзина",
+      en: "E-commerce · catalog & cart",
+    },
     description: {
-      ru: "Интернет-магазин с каталогом товаров, маршрутизацией и полноценным сценарием добавления в корзину.",
-      en: "An online store with a product catalog, routing and a complete add-to-cart flow.",
+      ru: "Витрина интернет-магазина с поиском, сортировкой по цене и категориям, карточками наличия и расчётом корзины.",
+      en: "An e-commerce storefront with search, price and category sorting, stock badges and cart calculation.",
     },
     detail: {
-      ru: "Состояние корзины отделено от представления, а интерфейс адаптируется под разные размеры экрана.",
-      en: "Cart state is separated from presentation, while the interface adapts to different screen sizes.",
+      ru: "Бизнес-логика корзины, подсчёт позиций и фильтрация изолированы в Redux-сторе отдельно от UI-компонентов.",
+      en: "Cart business logic, item totals and filtering are isolated in the Redux store cleanly separated from presentational components.",
     },
   },
   {
     id: "portfolio",
     index: "04",
     year: "2026",
-    repository: "https://github.com/lysy1313/portfolio-lysy",
+    repository: "https://github.com/lysy1313/portfolio-lysy-redesign",
     live: "#home",
-    stack: ["React", "TypeScript", "Vite", "CSS Motion", "Accessibility"],
-    title: { ru: "Портфолио", en: "Portfolio" },
-    category: { ru: "Личный сайт", en: "Personal website" },
-    description: {
-      ru: "Одностраничное портфолио, в котором типографика, цвет и движение работают как единая система.",
-      en: "A one-page portfolio where typography, color and motion work as one coherent system.",
-    },
-    detail: {
-      ru: "Scroll-driven анимации дополнены fallback-логикой, reduced motion и доступной навигацией с клавиатуры.",
-      en: "Scroll-driven animations are backed by fallbacks, reduced-motion support and accessible keyboard navigation.",
-    },
-  },
-  {
-    id: "legacy-portfolio",
-    index: "05",
-    year: "2025",
-    repository: "https://github.com/lysy1313/portfolio-lysy",
-    live: "https://lysy1313.github.io/portfolio-lysy/#/portfolio-lysy/",
-    image: "projects/legacy-portfolio.webp",
-    previewLabel: "portfolio-lysy / archive",
-    badge: {
-      ru: "Архив · старая версия",
-      en: "Archive · previous version",
+    archiveUrl: "https://lysy1313.github.io/portfolio-lysy/#/portfolio-lysy/",
+    archiveLabel: {
+      ru: "Архив v1 (2025)",
+      en: "Archive v1 (2025)",
     },
     stack: [
-      "React",
-      "TypeScript",
-      "React Router",
-      "styled-components",
-      "EmailJS",
+      "React 19",
+      "TypeScript 6",
+      "Vite 8",
+      "CSS Scroll Timeline",
+      "a11y",
     ],
-    title: { ru: "Старое портфолио", en: "Previous portfolio" },
-    category: {
-      ru: "Архив / предыдущая версия",
-      en: "Archive / previous version",
-    },
+    title: { ru: "Портфолио v2", en: "Portfolio v2" },
+    category: { ru: "Дизайн-система · v1 → v2", en: "Design system · v1 → v2" },
     description: {
-      ru: "Предыдущая многостраничная версия портфолио с роутингом, фиолетовой темой и отдельными экранами проектов.",
-      en: "The previous multi-page portfolio with routing, a purple theme and separate project screens.",
+      ru: "Полный редизайн личного сайта с переходом от многостраничного шаблона v1 к быстрой одностраничной архитектуре (100/100 Lighthouse).",
+      en: "A complete redesign of my personal site moving from the multi-page v1 template to a fast single-page architecture (100/100 Lighthouse).",
     },
     detail: {
-      ru: "Оставил проект в подборке как честный архив: он показывает, как изменились мой визуальный язык, архитектурные решения и внимание к деталям.",
-      en: "I keep it here as an honest archive showing how my visual language, architecture decisions and attention to detail have evolved.",
+      ru: "Нативные CSS scroll-driven анимации с фолбэками на IntersectionObserver, rAF-троттлинг pointer-эффектов, полная клавиатурная доступность и ссылка на старую версию v1 для сравнения.",
+      en: "Native CSS scroll-driven animations with IntersectionObserver fallbacks, rAF-throttled pointer effects, full keyboard accessibility and a direct link to v1 for comparison.",
     },
   },
 ];
@@ -322,6 +314,7 @@ export const siteCopy: Record<Language, SiteCopy> = {
       description:
         "Соединяю чистую архитектуру, выразительный визуал и аккуратное движение — без ущерба скорости, адаптивности и доступности.",
       primaryAction: "Смотреть проекты",
+      cvAction: "Скачать CV",
       secondaryAction: "Открыть GitHub",
       scrollHint: "Листайте, здесь начинается история",
       consoleFile: "portfolio.tsx",
@@ -335,7 +328,7 @@ export const siteCopy: Record<Language, SiteCopy> = {
       ],
       badges: ["React", "TypeScript", "Motion"],
       stats: [
-        { value: "05", label: "основных проектов" },
+        { value: "04", label: "ключевых проекта" },
         { value: "100%", label: "адаптивный подход" },
         { value: "BNTU", label: "техническое образование" },
       ],
@@ -368,7 +361,8 @@ export const siteCopy: Record<Language, SiteCopy> = {
       educationLabel: "Образование",
       education: "Белорусский национальный технический университет",
       approachLabel: "Рабочий принцип",
-      approach: "Сначала задача и пользовательский сценарий — затем технология.",
+      approach:
+        "Сначала задача и пользовательский сценарий — затем технология.",
       factsLabel: "Немного вне кода",
       facts: [
         "Зима > лето",
@@ -406,7 +400,8 @@ export const siteCopy: Record<Language, SiteCopy> = {
       sending: "Отправляю...",
       formHint: "Форма отправит сообщение напрямую через EmailJS.",
       sent: "Сообщение отправлено. Спасибо — отвечу как можно скорее.",
-      failed: "Не удалось отправить сообщение. Попробуйте ещё раз или напишите на email.",
+      failed:
+        "Не удалось отправить сообщение. Попробуйте ещё раз или напишите на email.",
     },
     footer: {
       note: "Спроектировано и собрано с вниманием к деталям.",
@@ -438,6 +433,7 @@ export const siteCopy: Record<Language, SiteCopy> = {
       description:
         "I combine clean architecture, expressive visuals and thoughtful motion — without sacrificing speed, responsiveness or accessibility.",
       primaryAction: "Explore projects",
+      cvAction: "Download CV",
       secondaryAction: "Open GitHub",
       scrollHint: "Scroll down — the story starts here",
       consoleFile: "portfolio.tsx",
@@ -451,7 +447,7 @@ export const siteCopy: Record<Language, SiteCopy> = {
       ],
       badges: ["React", "TypeScript", "Motion"],
       stats: [
-        { value: "05", label: "featured projects" },
+        { value: "04", label: "featured projects" },
         { value: "100%", label: "responsive mindset" },
         { value: "BNTU", label: "technical education" },
       ],
@@ -484,7 +480,8 @@ export const siteCopy: Record<Language, SiteCopy> = {
       educationLabel: "Education",
       education: "Belarusian National Technical University",
       approachLabel: "Working principle",
-      approach: "Start with the problem and user flow — choose the technology afterwards.",
+      approach:
+        "Start with the problem and user flow — choose the technology afterwards.",
       factsLabel: "A little beyond code",
       facts: [
         "Winter > summer",
@@ -522,7 +519,8 @@ export const siteCopy: Record<Language, SiteCopy> = {
       sending: "Sending...",
       formHint: "The form sends your message directly through EmailJS.",
       sent: "Message sent. Thank you — I will reply as soon as possible.",
-      failed: "The message could not be sent. Please try again or email me directly.",
+      failed:
+        "The message could not be sent. Please try again or email me directly.",
     },
     footer: {
       note: "Designed and built with care for the details.",

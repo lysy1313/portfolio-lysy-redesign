@@ -1,5 +1,5 @@
 import { useLanguage } from "../content/useLanguage";
-import { GITHUB_URL } from "../content/siteContent";
+import { GITHUB_URL, LINKEDIN_URL, TELEGRAM_URL } from "../content/siteContent";
 import { Icon } from "./Icon";
 
 export function Footer() {
@@ -30,6 +30,14 @@ export function Footer() {
 
         <div className="site-footer__meta">
           <span>© {year} Lysy</span>
+          <a href={TELEGRAM_URL} target="_blank" rel="noreferrer">
+            Telegram
+            <Icon name="arrow-up-right" width={15} height={15} />
+          </a>
+          <a href={LINKEDIN_URL} target="_blank" rel="noreferrer">
+            LinkedIn
+            <Icon name="arrow-up-right" width={15} height={15} />
+          </a>
           <a href={GITHUB_URL} target="_blank" rel="noreferrer">
             GitHub
             <Icon name="arrow-up-right" width={15} height={15} />

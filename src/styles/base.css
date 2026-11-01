@@ -8,13 +8,35 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-height) + 24px);
   background: var(--bg);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(91, 167, 255, 0.32) var(--bg);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 152, 170, 0.28);
+  border: 2px solid var(--bg);
+  border-radius: var(--radius-pill);
+  transition: background 180ms ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue);
 }
 
 body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
-  overflow-x: clip;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 74% 8%, rgba(50, 111, 190, 0.12), transparent 28rem),
     radial-gradient(circle at 8% 52%, rgba(59, 110, 173, 0.07), transparent 34rem),
@@ -78,7 +100,12 @@ img {
 
 h1,
 h2,
-h3,
+h3 {
+  margin: 0;
+  font-family: var(--font-heading);
+  letter-spacing: -0.04em;
+}
+
 p,
 dl,
 dd,
@@ -137,7 +164,7 @@ textarea:focus-visible {
   }
 
   .projects {
-    contain-intrinsic-size: auto 5200px;
+    contain-intrinsic-size: auto 3400px;
   }
 
   .skills {

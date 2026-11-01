@@ -54,10 +54,18 @@ export function usePointerEffects(): void {
       let tiltFrameId = 0;
       const localPointer: PointerPosition = { x: 0, y: 0 };
 
+      const invalidateBounds = () => {
+        bounds = null;
+      };
+
       const renderTilt = () => {
         tiltFrameId = 0;
 
-        if (!bounds || bounds.width === 0 || bounds.height === 0) {
+        if (!bounds) {
+          bounds = element.getBoundingClientRect();
+        }
+
+        if (bounds.width === 0 || bounds.height === 0) {
           return;
         }
 
@@ -100,12 +108,16 @@ export function usePointerEffects(): void {
       element.addEventListener("pointerenter", handleTiltStart);
       element.addEventListener("pointermove", handleTilt, { passive: true });
       element.addEventListener("pointerleave", resetTilt);
+      window.addEventListener("scroll", invalidateBounds, { passive: true });
+      window.addEventListener("resize", invalidateBounds, { passive: true });
 
       return () => {
         window.cancelAnimationFrame(tiltFrameId);
         element.removeEventListener("pointerenter", handleTiltStart);
         element.removeEventListener("pointermove", handleTilt);
         element.removeEventListener("pointerleave", resetTilt);
+        window.removeEventListener("scroll", invalidateBounds);
+        window.removeEventListener("resize", invalidateBounds);
         element.classList.remove("is-tilting");
       };
     });

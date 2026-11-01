@@ -1,6 +1,14 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useLanguage } from "../content/useLanguage";
-import { DISCORD, EMAIL, GITHUB_URL } from "../content/siteContent";
+import {
+  DISCORD,
+  EMAIL,
+  GITHUB_URL,
+  LINKEDIN_HANDLE,
+  LINKEDIN_URL,
+  TELEGRAM_HANDLE,
+  TELEGRAM_URL,
+} from "../content/siteContent";
 import { copyToClipboard } from "../lib/copyToClipboard";
 import { sendContactForm } from "../lib/emailjs";
 import { Icon } from "./Icon";
@@ -12,6 +20,7 @@ export function Contact() {
   const { copy } = useLanguage();
   const [emailCopied, setEmailCopied] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
+  const copyResetTimerRef = useRef<number | null>(null);
 
   const isSending = submitStatus === "sending";
   const feedback =
@@ -21,10 +30,25 @@ export function Contact() {
         ? copy.contact.failed
         : "";
 
+  useEffect(() => {
+    return () => {
+      if (copyResetTimerRef.current !== null) {
+        window.clearTimeout(copyResetTimerRef.current);
+      }
+    };
+  }, []);
+
   const handleCopyEmail = async () => {
     try {
       await copyToClipboard(EMAIL);
       setEmailCopied(true);
+      if (copyResetTimerRef.current !== null) {
+        window.clearTimeout(copyResetTimerRef.current);
+      }
+      copyResetTimerRef.current = window.setTimeout(() => {
+        setEmailCopied(false);
+        copyResetTimerRef.current = null;
+      }, 2200);
     } catch {
       setEmailCopied(false);
     }
@@ -86,18 +110,37 @@ export function Contact() {
                 <Icon name="arrow-up-right" width={20} height={20} />
               </a>
 
-              <div className="contact-method">
-                <span className="contact-method__icon contact-method__icon--discord">
-                  DS
+              <a
+                href={TELEGRAM_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="contact-method"
+              >
+                <span className="contact-method__icon">
+                  <Icon name="telegram" width={21} height={21} />
                 </span>
                 <span>
-                  <small>{copy.contact.discordLabel}</small>
-                  <strong>{DISCORD}</strong>
+                  <small>Telegram</small>
+                  <strong>{TELEGRAM_HANDLE}</strong>
                 </span>
-                <span className="contact-method__status">
-                  <span className="availability-dot" />
+                <Icon name="arrow-up-right" width={20} height={20} />
+              </a>
+
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="contact-method"
+              >
+                <span className="contact-method__icon">
+                  <Icon name="linkedin" width={21} height={21} />
                 </span>
-              </div>
+                <span>
+                  <small>LinkedIn</small>
+                  <strong>{LINKEDIN_HANDLE}</strong>
+                </span>
+                <Icon name="arrow-up-right" width={20} height={20} />
+              </a>
 
               <a
                 href={GITHUB_URL}
@@ -114,6 +157,19 @@ export function Contact() {
                 </span>
                 <Icon name="arrow-up-right" width={20} height={20} />
               </a>
+
+              <div className="contact-method">
+                <span className="contact-method__icon contact-method__icon--discord">
+                  DS
+                </span>
+                <span>
+                  <small>{copy.contact.discordLabel}</small>
+                  <strong>{DISCORD}</strong>
+                </span>
+                <span className="contact-method__status">
+                  <span className="availability-dot" />
+                </span>
+              </div>
             </div>
 
             <button

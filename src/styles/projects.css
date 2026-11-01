@@ -10,19 +10,19 @@
 
 .project-shell {
   position: relative;
-  min-height: 94svh;
+  min-height: 64svh;
 }
 
 .project-shell:last-child {
-  min-height: min(82svh, 820px);
+  min-height: min(54svh, 540px);
 }
 
 .project-card {
   position: sticky;
   top: calc(var(--header-height) + 18px + var(--project-offset));
   display: grid;
-  min-height: min(680px, calc(100svh - var(--header-height) - 64px));
-  grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1.18fr);
+  min-height: min(460px, calc(100svh - var(--header-height) - 52px));
+  grid-template-columns: minmax(320px, 0.84fr) minmax(0, 1.16fr);
   overflow: hidden;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-lg);
@@ -36,7 +36,11 @@
   z-index: -1;
   inset: 0;
   background:
-    radial-gradient(circle at 8% 8%, rgba(91, 167, 255, 0.13), transparent 24rem),
+    radial-gradient(
+      circle at 8% 8%,
+      rgba(91, 167, 255, 0.13),
+      transparent 24rem
+    ),
     linear-gradient(135deg, rgba(255, 255, 255, 0.025), transparent 48%);
   content: "";
 }
@@ -99,19 +103,19 @@
 }
 
 .project-card__copy {
-  margin-top: clamp(36px, 5vh, 66px);
+  margin-top: clamp(18px, 2.5vh, 32px);
 }
 
 .project-card h3 {
-  font-size: clamp(2.5rem, 5vw, 5.5rem);
-  font-weight: 690;
-  letter-spacing: -0.07em;
-  line-height: 0.92;
+  font-size: clamp(1.9rem, 3.2vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
 }
 
 .project-card__lead {
   max-width: 500px;
-  margin-top: 28px;
+  margin-top: 14px;
   color: var(--text-soft);
   font-size: clamp(1rem, 1.35vw, 1.12rem);
   line-height: 1.66;
@@ -119,7 +123,7 @@
 
 .project-card__detail {
   max-width: 500px;
-  margin-top: 15px;
+  margin-top: 10px;
   color: var(--muted);
   font-size: var(--type-small);
   line-height: 1.65;
@@ -130,7 +134,7 @@
   flex-wrap: wrap;
   gap: 8px;
   margin-top: auto;
-  padding-top: 36px;
+  padding-top: 20px;
 }
 
 .project-card__stack li {
@@ -146,8 +150,8 @@
 .project-card__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 22px;
-  margin-top: 28px;
+  gap: 20px;
+  margin-top: 18px;
 }
 
 .text-link {
@@ -191,7 +195,6 @@
 .project-card__media {
   min-width: 0;
   margin: 12px 12px 12px 0;
-  contain: paint;
 }
 
 .project-preview {
@@ -202,7 +205,11 @@
   border: 1px solid rgba(191, 214, 242, 0.17);
   border-radius: 22px;
   background:
-    radial-gradient(circle at 50% 15%, rgba(70, 142, 230, 0.24), transparent 36%),
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(70, 142, 230, 0.24),
+      transparent 36%
+    ),
     #0b111a;
   box-shadow:
     inset 0 1px rgba(255, 255, 255, 0.05),
@@ -249,12 +256,14 @@
 .project-preview img {
   width: 100%;
   height: 100%;
-  min-height: 460px;
+  min-height: 340px;
   object-fit: cover;
   object-position: center;
   border: 1px solid rgba(205, 224, 246, 0.16);
   border-radius: 14px;
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.46);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .project-card--todo .project-preview img {
@@ -341,11 +350,19 @@
   overflow: hidden;
   padding: clamp(24px, 4vw, 54px);
   background:
-    radial-gradient(circle at 76% 40%, rgba(91, 167, 255, 0.22), transparent 20rem),
+    radial-gradient(
+      circle at 76% 40%,
+      rgba(91, 167, 255, 0.22),
+      transparent 20rem
+    ),
     linear-gradient(rgba(91, 167, 255, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(91, 167, 255, 0.035) 1px, transparent 1px),
     #0a0e14;
-  background-size: auto, 42px 42px, 42px 42px, auto;
+  background-size:
+    auto,
+    42px 42px,
+    42px 42px,
+    auto;
 }
 
 .portfolio-preview__nav {
@@ -415,7 +432,12 @@
   place-items: center;
   border: 1px solid rgba(132, 195, 255, 0.25);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(91, 167, 255, 0.24), rgba(27, 69, 122, 0.08) 46%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(91, 167, 255, 0.24),
+    rgba(27, 69, 122, 0.08) 46%,
+    transparent 70%
+  );
   color: rgba(216, 235, 255, 0.75);
   font-family: var(--font-mono);
   font-size: clamp(1.4rem, 4vw, 3.2rem);

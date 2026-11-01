@@ -84,6 +84,17 @@ export function Projects() {
                       <Icon name="github" width={18} height={18} />
                       <span>{copy.projects.source}</span>
                     </a>
+                    {project.archiveUrl && project.archiveLabel ? (
+                      <a
+                        className="text-link"
+                        href={project.archiveUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <span>{project.archiveLabel[language]}</span>
+                        <Icon name="arrow-up-right" width={18} height={18} />
+                      </a>
+                    ) : null}
                   </div>
                 </div>
 
@@ -140,7 +151,7 @@ function ProjectVisual({ project, language }: ProjectVisualProps) {
 
   const imageStem = project.image.replace(/\.webp$/i, "");
   const imageSource = `${import.meta.env.BASE_URL}${imageStem}-768.webp`;
-  const imageSourceSet = [480, 768, 1200]
+  const imageSourceSet = [480, 768, 1200, 1600]
     .map(
       (width) =>
         `${import.meta.env.BASE_URL}${imageStem}-${width}.webp ${width}w`,

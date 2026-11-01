@@ -5,7 +5,8 @@
   align-items: stretch;
   padding-top: var(--header-height);
   padding-bottom: 0;
-  overflow: clip;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .hero::before {
@@ -349,18 +350,18 @@
 }
 
 .orbit-badge--1 {
-  top: 17%;
-  left: 0;
+  top: 9%;
+  left: 2%;
 }
 
 .orbit-badge--2 {
-  top: 25%;
-  right: 0;
+  top: 10%;
+  right: 2%;
 }
 
 .orbit-badge--3 {
-  right: 1%;
-  bottom: 19%;
+  right: 2%;
+  bottom: 9%;
 }
 
 .hero-visual__label {
@@ -507,5 +508,26 @@
 
   .scroll-cue {
     display: none;
+  }
+}
+
+@media (max-height: 640px), (orientation: landscape) and (max-height: 700px) {
+  .hero {
+    height: auto;
+    min-height: auto;
+    overflow-y: visible;
+    padding-top: calc(var(--header-height) + 24px);
+    padding-bottom: 48px;
+  }
+
+  .hero__grid {
+    height: auto;
+    min-height: 0;
+    padding-block: 0;
+  }
+
+  .hero-visual {
+    height: auto;
+    min-height: 380px;
   }
 }

@@ -1,16 +1,14 @@
-import { sendForm } from "@emailjs/browser";
+interface EmailJsEnvironment {
+  readonly VITE_EMAILJS_SERVICE_ID?: unknown;
+  readonly VITE_EMAILJS_TEMPLATE_ID?: unknown;
+  readonly VITE_EMAILJS_PUBLIC_KEY?: unknown;
+}
 
 const DEFAULT_EMAILJS_CONFIG = {
   serviceId: "service_1vlrsbi",
   templateId: "template_udsi22r",
   publicKey: "gVP_hMOVbsZwFms1D",
 } as const;
-
-interface EmailJsEnvironment {
-  readonly VITE_EMAILJS_SERVICE_ID?: unknown;
-  readonly VITE_EMAILJS_TEMPLATE_ID?: unknown;
-  readonly VITE_EMAILJS_PUBLIC_KEY?: unknown;
-}
 
 function readEnvironmentValue(value: unknown, fallback: string): string {
   if (typeof value !== "string") {
@@ -38,8 +36,14 @@ const EMAILJS_CONFIG = {
   ),
 } as const;
 
-export function sendContactForm(form: HTMLFormElement) {
+export async function sendContactForm(form: HTMLFormElement) {
+  const { sendForm } = await import("@emailjs/browser");
+
   return sendForm(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, form, {
     publicKey: EMAILJS_CONFIG.publicKey,
+    limitRate: {
+      id: "portfolio-contact-form",
+      throttle: 10_000,
+    },
   });
 }

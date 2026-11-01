@@ -18,19 +18,25 @@ export function Header({ activeSection }: HeaderProps) {
       }
     };
 
-    const handleWideViewport = () => {
-      if (window.innerWidth >= 900) {
+    const handleViewportChange = () => {
+      if (window.innerWidth >= 900 || window.innerHeight <= 600) {
         setMenuOpen(false);
       }
     };
 
+    const handleOrientation = () => {
+      setMenuOpen(false);
+    };
+
     document.addEventListener("keydown", handleEscape);
-    window.addEventListener("resize", handleWideViewport);
+    window.addEventListener("resize", handleViewportChange);
+    window.addEventListener("orientationchange", handleOrientation);
     document.body.classList.toggle("menu-is-open", menuOpen);
 
     return () => {
       document.removeEventListener("keydown", handleEscape);
-      window.removeEventListener("resize", handleWideViewport);
+      window.removeEventListener("resize", handleViewportChange);
+      window.removeEventListener("orientationchange", handleOrientation);
       document.body.classList.remove("menu-is-open");
     };
   }, [menuOpen]);
