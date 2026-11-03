@@ -155,16 +155,11 @@ textarea:focus-visible {
 }
 
 @supports (content-visibility: auto) {
-  .projects,
   .skills,
   .about,
   .contact,
   .site-footer {
     content-visibility: auto;
-  }
-
-  .projects {
-    contain-intrinsic-size: auto 3400px;
   }
 
   .skills {

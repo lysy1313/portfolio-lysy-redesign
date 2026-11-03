@@ -24,17 +24,16 @@ export function Projects() {
 
         <div className="project-stack">
           {projects.map((project, index) => (
-            <div
-              className="project-shell"
+            <article
               key={project.id}
+              className={`project-card project-card--${project.id} scroll-reveal`}
               style={
                 {
                   "--project-order": index,
-                  "--project-offset": `${index * 12}px`,
+                  zIndex: index + 1,
                 } as CSSProperties
               }
             >
-              <article className={`project-card project-card--${project.id} scroll-reveal`}>
                 <div className="project-card__content">
                   <div className="project-card__topline">
                     <span className="project-card__index">{project.index}</span>
@@ -99,8 +98,7 @@ export function Projects() {
                 </div>
 
                 <ProjectVisual project={project} language={language} />
-              </article>
-            </div>
+            </article>
           ))}
         </div>
       </div>

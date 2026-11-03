@@ -1,4 +1,6 @@
 .skills {
+  position: relative;
+  z-index: 20;
   overflow: hidden;
   background:
     radial-gradient(circle at 90% 18%, rgba(91, 167, 255, 0.08), transparent 28rem),
