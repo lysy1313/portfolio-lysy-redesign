@@ -299,25 +299,13 @@
   pointer-events: none;
 }
 
-.project-card--shop .project-preview {
-  background: #eef1f7;
+.project-card--shop .project-preview img {
+  object-fit: cover;
+  object-position: top center;
 }
 
-.project-card--shop .project-preview__image-wrap {
-  background: #eef1f7;
-}
-
-.project-card--shop .project-preview__image-wrap::after {
-  display: none;
-}
-
-.project-card--shop .project-preview img,
 .project-card--legacy-portfolio .project-preview img {
   object-fit: contain;
-}
-
-.project-card--shop .project-preview img {
-  object-position: top center;
 }
 
 .project-card--legacy-portfolio .project-preview {
